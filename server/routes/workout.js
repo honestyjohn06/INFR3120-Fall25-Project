@@ -114,6 +114,7 @@ router.get('/delete/:id', async (req, res, next) => {
             res.redirect("/workouts")
         })
     }
+    
         catch(err)
     {
         console.log(err);
