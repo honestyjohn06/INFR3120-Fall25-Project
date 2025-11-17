@@ -1,0 +1,64 @@
+<!-- Content for adding the workout-->
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1>
+                <%= title %>
+            </h1>
+
+            <form class="form" method="post">
+                <div class="form-group">
+                    <label for="exerciseTextField">Exercise name</label>
+                    <input type="text" class="form-control" 
+                        id="exerciseTextField" 
+                        placeholder="Enter the exercise name"
+                        name="exercise" 
+                        value="<%= Workout.exercise%>"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="muscleGroupTextField">Muscle Group</label>
+                    <input type="text" class="form-control" 
+                        id="muscleGroupTextField"
+                        placeholder="Enter the muscle group worked" 
+                        name="muscleGroup" 
+                        value="<%= Workout.muscleGroup%>"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="setsTextField">Number of Sets</label>
+                    <input type="text" class="form-control" 
+                        id="setsTextField" 
+                        placeholder="Enter the number of sets"
+                        name="sets" 
+                        value="<%= Workout.sets%>"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="repsTextField">Number of Reps</label>
+                    <input type="text" class="form-control" 
+                        id="repsTextField" 
+                        placeholder="Enter the number of reps"
+                        name="reps" 
+                        value="<%= Workout.reps%>"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="weightTextField">Weight(lbs)</label>
+                    <input type="text" class="form-control" 
+                    id="weightTextField" 
+                    placeholder="Enter the weight used" 
+                    name="weight"
+                    value="<%= Workout.weight%>"
+                    required>
+                </div>
+    <button class="btn btn-primary" type="sumbit">
+        <i class="fas fa-edit"></i>Sumbit
+    </button>
+    <a href="/workouts" class="btn btn-warning">
+        <i class="fas fa-undo"></i>Cancel
+    </a>
+    </form>
+</div>
+</div>
+</div>

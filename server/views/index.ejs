@@ -1,0 +1,65 @@
+     <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            border-color: #34c759;
+            border-style: outset;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            background-color: #28a745;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .hero-btn:hover {
+            background-color: #34c759;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <img src="/images/Banner.jpg" alt="Banner" class="hero-img">
+
+        <div class="hero-content">
+            <h1>Welcome to <%= title%></h1>
+            <p>Your fitness journey starts here</p>
+            <a class="hero-btn" href="/workouts/add">Log a Workout</a>
+        </div>
+    </section>
+</body>
