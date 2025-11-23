@@ -1,0 +1,51 @@
+ <main class="container">
+    <% if(message.length > 0) { %>
+        <div class="alert alter danger">
+            <%= message %>
+        </div>
+
+    <%}%>
+    <div class="row">
+        <div class="offset-md-4 col-md-8">
+            <h1>Register Here</h1>
+            <form method="post" autocomplete="off">
+                <fieldset class="form-group">
+                    <label for="username">
+                    <input type="text" class="form-control"
+                    name="username"
+                    placeholder="Enter Username"
+                    id="userame" required autofocus>
+                    </label>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="password">
+                    <input type="password" class="form-control"
+                    name="password"
+                    placeholder="Enter Password"
+                    id="password" required>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="email">
+                    <input type="email" class="form-control"
+                    name="email"
+                    placeholder="Enter Email Address"
+                    id="email" required>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="displayName">
+                    <input type="displayName" class="form-control"
+                    name="displayName"
+                    placeholder="Enter Display Name"
+                    id="displayName" required>
+                </fieldset>
+                <fieldset class="form-group text-right">
+                    <input type="submit" class="btn btn-success" value="Register">
+                    <a href="/"></a>
+                    <input type="buttont" class="btn btn-warning" value="Cancel">
+                    <a href="/"></a>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</main>

@@ -12,6 +12,21 @@
         <a class="btn btn-outline-light btn-sm mx-1" href="/workouts">Workouts</a>
         <a class="btn btn-success btn-sm mx-1" href="/workouts/add">Log a Workout</a>
       </div>
+      <% if(typeof displayName=='string' && displayName) { %>
+        <div class="navbar-nav ms-auto align-items-center">
+          <span class="navbar-text text-light me-2">
+            <i class="fas fa-lg fa-user"></i>
+            Welcome, <%= displayName %>
+          </span>
+          <a href="/logout" class="btn btn-danger btn-sm mx-1">
+            <i class="fas fa-lg fa-sign-out-alt"></i> Logout
+          </a>
+        </div>
+      <% } else { %>
+        <div class="navbar-nav ms-auto">
+          <a class="btn btn-primary btn-sm mx-1" href="/login">Login</a>
+        </div>
+      <% } %>
     </div>
   </div>
 </nav>

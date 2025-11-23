@@ -2,7 +2,14 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 let Workout = require('../models/workout')
-
+function requireAuth(req,res,next)
+{
+    if(!req.isAuthenticated())
+    {
+        return res.redirect('/login')
+    }
+    next();
+}
 //get --> Extract and read something
 // post --> post something
 // put --> edit/update some data
@@ -17,14 +24,15 @@ router.get('/', async (req, res, next) => {
         //console.log(WorkoutList);
         res.render('Workouts/list', {
             title: 'Workouts',
-            WorkoutList: WorkoutList
-        }
-        )
+            WorkoutList: WorkoutList,
+            displayName: req.user ? req.user.displayName : ""
+        })
     }
     catch (err) {
         console.error(err);
         res.render('Workouts/list', {
-            error: 'Error on server'
+            error: 'Error on server',
+            displayName: req.user ? req.user.displayName : ""
         })
     }
 });
@@ -33,16 +41,17 @@ router.get('/', async (req, res, next) => {
 router.get('/add', async (req, res, next) => {
     try {
         res.render('Workouts/add', {
-            title: 'Add a Workout'
-        }
-        )
+            title: 'Add a Workout',
+            displayName: req.user ? req.user.displayName : ""
+        })
     }
     catch (err) {
-    console.error(err);
-    res.render('Workouts/add', {
-        error: 'Error on server'
-    })
-}
+        console.error(err);
+        res.render('Workouts/add', {
+            error: 'Error on server',
+            displayName: req.user ? req.user.displayName : ""
+        })
+    }
 });
 
 //Post route for the processing the Add Page - Create Operation
@@ -60,12 +69,14 @@ router.post('/add', async (req, res, next) => {
         })
     }
     catch (err) {
-    console.error(err);
-    res.render('Workouts/add', {
-        error: 'Error on server'
-    })
-}
+        console.error(err);
+        res.render('Workouts/add', {
+            error: 'Error on server',
+            displayName: req.user ? req.user.displayName : ""
+        })
+    }
 });
+
 //Get route for the displaying the Edit Page - Update Operation
 router.get('/edit/:id', async (req, res, next) => {
     try{
@@ -74,7 +85,8 @@ router.get('/edit/:id', async (req, res, next) => {
         res.render("Workouts/edit",
             {
                 title:'Edit Workout',
-                Workout: workoutToEdit
+                Workout: workoutToEdit,
+                displayName: req.user ? req.user.displayName : ""
             }
         )
     }
@@ -84,6 +96,7 @@ router.get('/edit/:id', async (req, res, next) => {
         next(err);
     }
 })
+
 //Post route for the processing the Edit Page - Update Operation
 router.post('/edit/:id', async (req, res, next) => {
     try{
@@ -100,12 +113,13 @@ router.post('/edit/:id', async (req, res, next) => {
             res.redirect('/workouts')
         })
     }
-        catch(err)
+    catch(err)
     {
         console.log(err);
         next(err);
     }
 })
+
 //Get route for the delete operatation- Delete Operation
 router.get('/delete/:id', async (req, res, next) => {
     try{
@@ -114,8 +128,7 @@ router.get('/delete/:id', async (req, res, next) => {
             res.redirect("/workouts")
         })
     }
-    
-        catch(err)
+    catch(err)
     {
         console.log(err);
         next(err);

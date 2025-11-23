@@ -4,10 +4,13 @@
     <div class="row">
         <div class="offset-md-1 col-md-11">
             <h1><%= title %></h1>
-            <a href="/workouts/add" class="btn btn-primary" role="button">
+            <% if(typeof displayName=='string' && displayName) { %>
+                <a href="/workouts/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i>Add a Workout
             </a>
+            <% } %>
             <table class="table table-border table-striped table-hover">
+                <% if(typeof displayName=='string' && displayName) { %>
                 <!--Header Row-->
                 <tr class="d-flex">
                     <th class="text-center col-2">Exercise</th>
@@ -15,6 +18,8 @@
                     <th class="text-center col-1" >Sets</th>
                     <th class="text-center col-1">Reps</th>
                     <th class="text-center col-2">Weight</th>
+                    <th class="text-center col-1"></th>
+                    <th class="text-center col-1"></th>
                 </tr>
                 <!-- for/while loop-->
                 <% for(let count=0; count<WorkoutList.length;count++) { %>
@@ -35,6 +40,26 @@
                         <i class="fas fa-trash-alt"></i>Delete
                     </a></td>
                 </tr>
+                <% } %>
+                <% }else { %>
+                    <!--Header Row-->
+                <tr class="d-flex">
+                    <th class="text-center col-2">Exercise</th>
+                    <th class="text-center col-4">Muscle Group</th>
+                    <th class="text-center col-1" >Sets</th>
+                    <th class="text-center col-1">Reps</th>
+                    <th class="text-center col-2">Weight</th>
+                </tr>
+                <!-- for/while loop-->
+                <% for(let count=0; count<WorkoutList.length;count++) { %>
+                <tr class="d-flex">
+                    <td class ="text-center col-2"><%= WorkoutList[count].exercise %></td>
+                    <td class ="text-center col-4"><%= WorkoutList[count].muscleGroup %></td>
+                    <td class ="text-center col-1"><%= WorkoutList[count].sets %></td>
+                    <td class ="text-center col-1"><%= WorkoutList[count].reps %></td>
+                    <td class ="text-center col-2"><%= WorkoutList[count].weight %></td>
+                </tr>
+                <% } %>
                 <% } %>
             </table>
             
