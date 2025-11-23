@@ -1,3 +1,10 @@
+/**
+ * User Model for Authentication
+ * Created by: Chadwick Enebeli
+ * Date: Nov 22, 2025
+ * Description: Mongoose schema for user authentication with passport-local-mongoose
+ */
+
 let mongoose = require('mongoose')
 let passportLocalMongoose = require('passport-local-mongoose');
 const { createIndexes, collection } = require('./workout');
