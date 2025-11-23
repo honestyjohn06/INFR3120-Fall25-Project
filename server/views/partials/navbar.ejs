@@ -9,8 +9,10 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav me-auto align-items-center">
         <a class="btn btn-outline-light btn-sm mx-1" href="/">Home</a>
-        <a class="btn btn-outline-light btn-sm mx-1" href="/workouts">Workouts</a>
-        <a class="btn btn-success btn-sm mx-1" href="/workouts/add">Log a Workout</a>
+                  <a class="btn btn-outline-light btn-sm mx-1" href="/workouts">Workouts</a>
+        <% if(typeof displayName=='string' && displayName) { %>
+          <a class="btn btn-success btn-sm mx-1" href="/workouts/add">Log a Workout</a>
+        <% } %>
       </div>
       <% if(typeof displayName=='string' && displayName) { %>
         <div class="navbar-nav ms-auto align-items-center">

@@ -1,4 +1,4 @@
-     <style>
+<style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -59,7 +59,11 @@
         <div class="hero-content">
             <h1>Welcome to <%= title%></h1>
             <p>Your fitness journey starts here</p>
-            <a class="hero-btn" href="/workouts/add">Log a Workout</a>
+            <% if(typeof displayName=='string' && displayName) { %>
+                <a class="hero-btn" href="/workouts/add">Log a Workout</a>
+            <% } else { %>
+                <a class="hero-btn" href="/login">Log a Workout</a>
+            <% } %>
         </div>
     </section>
 </body>
