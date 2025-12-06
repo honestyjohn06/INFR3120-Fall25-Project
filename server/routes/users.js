@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 495d323c2efafa4df1ff1aab68a4cdaa711886fa
 var express = require('express');
 var router = express.Router();
 
